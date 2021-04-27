@@ -2,6 +2,7 @@
 
 function isUnique(str) {
   //code
+  return new setInterval(str.split("")).size === str.length;
 }
 
 module.exports = isUnique;
