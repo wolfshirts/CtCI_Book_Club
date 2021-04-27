@@ -9,7 +9,7 @@ function stringCompression(str) {
 
   for (let i = 1; i < str.length; i++) {
     if (str[i] !== lastChar) {
-      result += "" + counter + lastChar;
+      result += "" + lastChar + counter;
       lastChar = str[i];
       counter = 1;
     } else {
@@ -17,7 +17,7 @@ function stringCompression(str) {
       lastChar = str[i];
     }
   }
-  result += "" + counter + lastChar;
+  result += "" + lastChar + counter;
   return result.length < str.length ? result : str;
 }
 
