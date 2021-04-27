@@ -2,6 +2,31 @@
 
 function palindromePermutations(str) {
   //Coding here is optional, but recommended.
+  const seen = {};
+
+  str = str.toLowerCase();
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      continue;
+    }
+    if (!seen[str[i]]) {
+      seen[str[i]] = 1;
+    } else {
+      seen[str[i]] += 1;
+    }
+  }
+  let count = 0;
+  for (let key in seen) {
+    if (count > 1) {
+      return false;
+    }
+    if (seen[key] % 2 !== 0) {
+      count += 1;
+    }
+  }
+  return true;
 }
+
+console.log(palindromePermutations("boopty scoopty woop"));
 
 module.exports = palindromePermutations;
