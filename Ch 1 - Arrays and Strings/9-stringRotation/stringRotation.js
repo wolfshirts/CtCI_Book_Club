@@ -3,7 +3,10 @@
 //you can use .includes to simulate the call of isSubstring
 
 function stringRotation(str1, str2) {
-  //code
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  return (str1 + str1).includes(str2);
 }
 
 module.exports = stringRotation;
