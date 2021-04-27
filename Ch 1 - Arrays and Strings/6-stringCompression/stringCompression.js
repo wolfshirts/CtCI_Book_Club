@@ -2,6 +2,23 @@
 
 function stringCompression(str) {
   //I'd put the code here
+  let lastChar = str[0];
+  let compressed = "";
+  let counter = 1;
+  let result = "";
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] !== lastChar) {
+      result += "" + counter + lastChar;
+      lastChar = str[i];
+      counter = 1;
+    } else {
+      counter += 1;
+      lastChar = str[i];
+    }
+  }
+  result += "" + counter + lastChar;
+  return result.length < str.length ? result : str;
 }
 
 module.exports = stringCompression;
